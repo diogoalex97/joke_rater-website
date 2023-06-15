@@ -1,7 +1,7 @@
 from PIL import Image
 import streamlit as st
 from analyzetext import analyze_text, classify_text
-from cleaner import cleaner_class
+
 # Check the website: make streamlit
 
 

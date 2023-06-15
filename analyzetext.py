@@ -1,5 +1,6 @@
 from cleaner import cleaner_class, clean_score
 from models import load_model, load_model_score
+from frame import filter_and_get_top, display_dataframe_from_csv
 import streamlit as st
 
 type_humour = ['Pun Humor',
@@ -36,8 +37,9 @@ def analyze_text(text):
     modified_topic = remove_word_from_string(topic['labels'][0], 'Jokes')
     result_one = st.write("<b>Type of humor :</b>", modified_type, unsafe_allow_html=True)
     result_two = st.write("<b>Topic of the Joke :</b>", modified_topic, unsafe_allow_html=True)
-
-    return result_one, result_two
+    df = display_dataframe_from_csv()
+    result_three = st.write(filter_and_get_top(df,"type humor",type['labels'][0],"topic joke",topic['labels'][0]))
+    return result_one, result_two, result_three
 
 def classify_text(text):
     model_score = load_model_score()
