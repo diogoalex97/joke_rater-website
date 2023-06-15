@@ -1,4 +1,4 @@
-from clean import clean
+from cleaner import cleaner_class, clean_score
 from models import load_model, load_model_score
 import streamlit as st
 
@@ -21,20 +21,26 @@ topic_humour = ['Animals Jokes',
                 'Celebrity Jokes'
                 ]
 
+def remove_word_from_string(string, word):
+    new_string = string.replace(word, '')
+    return new_string
+
 def analyze_text(text):
     # Run your model on the input text
     # Modify this function according to your specific model and analysis
-    cleaner = clean(text)
+    cleaner = cleaner_class(text)
     model = load_model()
     type = model(cleaner,type_humour)
     topic = model(cleaner,topic_humour)
-    result_one = st.write("type of humor :", {type['labels'][0]})
-    result_two = st.write("topic of humor :", {topic['labels'][0]})
+    modified_type= remove_word_from_string(type['labels'][0], 'Humor')
+    modified_topic = remove_word_from_string(topic['labels'][0], 'Jokes')
+    result_one = st.write("<b>Type of humor :</b>", modified_type, unsafe_allow_html=True)
+    result_two = st.write("<b>Topic of the Joke :</b>", modified_topic, unsafe_allow_html=True)
 
     return result_one, result_two
 
 def classify_text(text):
     model_score = load_model_score()
-    cleaner = clean(text)
+    cleaner = clean_score(text)
     result = model_score.predict(cleaner)
     return result

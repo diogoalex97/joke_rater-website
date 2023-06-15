@@ -1,7 +1,7 @@
 from PIL import Image
 import streamlit as st
-import pickle
 from analyzetext import analyze_text, classify_text
+from cleaner import cleaner_class
 # Check the website: make streamlit
 
 
@@ -89,8 +89,8 @@ def main():
     # Perform analysis when the button is clicked
     if(st.button('Submit')):
         if joke_input:
-            result = joke_input.title()
             st.success(f"Processing your joke, good luck")
+            st.write("<b>Joke:</b>", joke_input, unsafe_allow_html=True)
             analyze_text(joke_input)
             classify_text(joke_input)
         else:
