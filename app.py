@@ -1,6 +1,7 @@
-import streamlit as st
 from PIL import Image
-
+import streamlit as st
+import pickle
+from analyzetext import analyze_text, classify_text
 # Check the website: make streamlit
 
 
@@ -78,13 +79,28 @@ with col3:
     st.header(" ")
 
 st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant result product of three dudes' work (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
-st.write(text_justify("<h5>I'm a two-week product of Natural Language Processing (NLP) from subreddits datasets. Expect <u>mediocracy</u>, like the jokes I'm assuming you're inputting. Think that not even Chat GPD can generate more than 25 jokes (or variants), so I'm saying I'm awsome, in a 'what your parents expect of you' way.</h5>"), unsafe_allow_html=True)
+st.write(text_justify("<h5>I'm a two-week product of Natural Language Processing (NLP) from subreddits datasets. Expect <u>mediocracy</u>, like the jokes I'm assuming you're inputting. Think that not even Chat GPD can generate more than 25 jokes (or variants), so I'm saying I'm awesome, in a 'what your parents expect of you' way.</h5>"), unsafe_allow_html=True)
 
-# Text Input Box
-st.write("<h5>In case you want to give it a go, type a joke on the space bellow</h5>", unsafe_allow_html=True)
-joke_input = st.text_input("who would have guessed that's what the bar was for... shocking, I know", label_visibility='collapsed')
+def main():
+    # Text Input Box
+    st.write("<h5>In case you want to give it a go, type a joke on the space bellow</h5>", unsafe_allow_html=True)
+    joke_input = st.text_input("who would have guessed that's what the bar was for... shocking, I know", label_visibility='collapsed')
+
+    # Perform analysis when the button is clicked
+    if(st.button('Submit')):
+        if joke_input:
+            result = joke_input.title()
+            st.success(f"Processing your joke, good luck")
+            analyze_text(joke_input)
+            classify_text(joke_input)
+        else:
+            st.write("Please enter some text.")
+
+
+
 # display the name when the submit button is clicked
 # .title() is used to get the input text string
-if(st.button('Submit')):
-    result = joke_input.title()
-    st.success(f"Processing {result}, good luck")
+
+
+if __name__ == "__main__":
+    main()
