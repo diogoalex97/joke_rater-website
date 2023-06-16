@@ -1,8 +1,8 @@
 from cleaner import cleaner_class, clean_score
 from models import load_model, load_model_score
-from frame import filter_and_get_top, display_dataframe_from_csv, calculate_average
+import numpy as np
+from functools import cache
 import streamlit as st
-
 type_humour = ['Pun Humor',
               'Dark Humor',
               'Cultural Humor',
@@ -31,21 +31,24 @@ def analyze_text(text):
     # Modify this function according to your specific model and analysis
     cleaner = cleaner_class(text)
     model = load_model()
-    type = model(cleaner,type_humour)
+    type_ = model(cleaner,type_humour)
     topic = model(cleaner,topic_humour)
-    modified_type= remove_word_from_string(type['labels'][0], 'Humor')
-    modified_topic = remove_word_from_string(topic['labels'][0], 'Jokes')
-    result_one = st.write("<b>Type of humor :</b>", modified_type, unsafe_allow_html=True)
-    result_two = st.write("<b>Topic of the Joke :</b>", modified_topic, unsafe_allow_html=True)
-    df = display_dataframe_from_csv()
-    result_three = st.write(filter_and_get_top(df,"type humor",type['labels'][0],"topic joke",topic['labels'][0]))
-    result_four = st.write("<b> Average number of comments for these types:</b>",calculate_average(df,"ncom_raw","type humor",type['labels'][0],"topic joke",topic['labels'][0]),unsafe_allow_html=True)
-    result_five = st.write("<b> Average number of #### for these types:</b>",calculate_average(df,"score_raw","type humor",type['labels'][0],"topic joke",topic['labels'][0]),unsafe_allow_html=True)
-    result_six = st.write("<b> Average number of  for these types:</b>",calculate_average(df,"ratio_-5_to_5","type humor",type['labels'][0],"topic joke",topic['labels'][0]),unsafe_allow_html=True)
-    return result_one, result_two, result_three, result_four, result_five, result_six
 
+    return type_['labels'][0], topic['labels'][0]
+
+def embedding(word2vec, sentences):
+    embedded_sentences = [embed_sentence(word2vec, sentence) for sentence in sentences]
+    return np.array(embedded_sentences)
+
+
+def embed_sentence(word2vec, sentence):
+    words = [word.lower() for word in sentence.split()]
+    embedded_sentence = [word2vec.wv[word]
+                             for word in words
+                             if word in word2vec.wv]
+    return np.array(embedded_sentence)
+
+
+@st.cache_resource
 def classify_text(text):
-    model_score = load_model_score()
-    cleaner = clean_score(text)
-    result = model_score.predict(cleaner)
-    return result
+    return np.random.rand()

@@ -4,3 +4,4 @@ gensim
 Pillow
 pandas
 torch
+tensorflow

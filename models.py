@@ -1,11 +1,7 @@
 from transformers import  pipeline
 import streamlit as st
 import pickle
-from gensim.models import Word2Vec
-# import tensorflow as tfds
-# from tensorflow.keras.preprocessing.text import text_to_word_sequence, Tokenizer
-# from tensorflow.keras.preprocessing.sequence import pad_sequences
-# from tensorflow.keras import layers, Sequential
+from tensorflow.keras import models
 
 @st.cache_resource
 def load_model():
@@ -14,5 +10,8 @@ def load_model():
 
 @st.cache_resource
 def load_model_score():
-    model = pickle.load(open('engagement_model.sav', 'rb'))
-    return model
+    model = models.load_model('data/engagement_model_v1')
+    #word2vec = Word2Vec.load("word2vec_v1.model")
+    with open("data/word2vec_v3", 'rb') as file:
+        word2vec = pickle.load(file)
+    return None
