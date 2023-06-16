@@ -85,7 +85,7 @@ st.write(text_justify("<h5>I'm a two-week product of these handsome guys. Expect
 
 
 # Text Input Box
-st.write("<h5>In case you want to give it a go, type a joke below</h5>", unsafe_allow_html=True)
+st.write("<h5>In case you want to give it a go type a joke below</h5>", unsafe_allow_html=True)
 joke_input = st.text_area("who would have guessed that's what the bar was for... shocking, I know", label_visibility='collapsed')
 
 # Perform analysis when the button is clicked
