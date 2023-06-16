@@ -109,7 +109,8 @@ if  st.session_state.get("submit", False):
         # st.write(f"<b> Average number of comments for {modified_type} {modified_topic} jokes:</b>",str(round(calculate_average(jokes_data,"ncom_raw","type humor",type_,"topic joke",topic),2)),unsafe_allow_html=True)
         # st.write("<b> Average number of interaction with these types:</b>",str(round(calculate_average(jokes_data,"score_raw","type humor",type_,"topic joke",topic),2)),unsafe_allow_html=True)
         # st.write("<b> Average of upvote ratio for these types:</b>",str(round(calculate_average(jokes_data, "ratio_0_to_10", "type humor", type_, "topic joke", topic),2) * 100) + "%",unsafe_allow_html=True)
-        st.write("<b> Engagement percentage:</b>",str(round(classify_text(joke_input),2)),"<b>Please be carefull this rate is definitely no reliable!!</b>",unsafe_allow_html=True)
+        st.write("<b> Engagement percentage:</b>",str(round(classify_text(joke_input),2)),unsafe_allow_html=True)
+        st.write("<b>Please be carefull this rate is definitely no reliable!!</b>",unsafe_allow_html=True)
         filtered_jokes = filter_jokes(jokes_data, "type humor",type_,"topic joke",topic)
         fig, axes = plt.subplots(1, 3, figsize=(10, 3))
 
