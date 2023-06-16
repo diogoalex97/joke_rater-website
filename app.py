@@ -81,7 +81,7 @@ with col3:
     st.header(" ")
 
 st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to see what theme of jokes can you come up with, make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
-st.write(text_justify("<h5>I'm a two-week product of these handsome guys. Expect <u>mediocraty</u>, like the jokes I'm assuming you're inputting. Think that not even Chat GPD can generate more than 25 jokes (or variants), so I'm saying I'm awesome, in a 'what your parents expect of you' way.</h5>"), unsafe_allow_html=True)
+st.write(text_justify("<h5>I'm a two-week product of these handsome guys. Expect <u>mediocraty</u>, like the jokes I'm assuming you're inputting. Think that not even Chat GPT can generate more than 25 jokes (or variants), so I'm saying I'm awesome, in a 'what your parents expect of you' way.</h5>"), unsafe_allow_html=True)
 
 
 # Text Input Box
