@@ -3,7 +3,7 @@ import pandas as pd
 
 def display_dataframe_from_csv():
     # Load the CSV file into a DataFrame
-    df = pd.read_csv("/home/diogo/code/HumanJorge/joke_rater_project/joke_rater-website/data/r_class_dict_diogo.csv")
+    df = pd.read_csv("data/r_class_dict_diogo.csv")
 
     return df
 
