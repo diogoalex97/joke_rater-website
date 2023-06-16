@@ -1,5 +1,4 @@
 import re
-import emoji
 
 def cleaner_class(sentence):
         # Basic cleaning

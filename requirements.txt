@@ -1,0 +1,5 @@
+streamlit
+transformers
+gensim
+Pillow
+pandas
