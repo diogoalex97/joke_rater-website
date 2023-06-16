@@ -1,12 +1,12 @@
 from cleaner import cleaner_class, clean_score
 from models import load_model, load_model_score
-from frame import filter_and_get_top, display_dataframe_from_csv
+from frame import filter_and_get_top, display_dataframe_from_csv, calculate_average
 import streamlit as st
 
 type_humour = ['Pun Humor',
               'Dark Humor',
               'Cultural Humor',
-              'One-liner Humor',
+            #   'One-liner Humor',
               'Dad Humor',
               'Knock-knock Humor',
               'Sexual Humor'
@@ -39,7 +39,10 @@ def analyze_text(text):
     result_two = st.write("<b>Topic of the Joke :</b>", modified_topic, unsafe_allow_html=True)
     df = display_dataframe_from_csv()
     result_three = st.write(filter_and_get_top(df,"type humor",type['labels'][0],"topic joke",topic['labels'][0]))
-    return result_one, result_two, result_three
+    result_four = st.write("<b> Average number of comments for these types:</b>",calculate_average(df,"ncom_raw","type humor",type['labels'][0],"topic joke",topic['labels'][0]),unsafe_allow_html=True)
+    result_five = st.write("<b> Average number of #### for these types:</b>",calculate_average(df,"score_raw","type humor",type['labels'][0],"topic joke",topic['labels'][0]),unsafe_allow_html=True)
+    result_six = st.write("<b> Average number of  for these types:</b>",calculate_average(df,"ratio_-5_to_5","type humor",type['labels'][0],"topic joke",topic['labels'][0]),unsafe_allow_html=True)
+    return result_one, result_two, result_three, result_four, result_five, result_six
 
 def classify_text(text):
     model_score = load_model_score()
