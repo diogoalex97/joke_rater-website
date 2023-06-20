@@ -84,12 +84,11 @@ st.write(text_justify("<h5>Since Chat GPT can't generate more than 25 jokes (or 
 
 # Text Input Box
 st.write("<h5>In case you want to give it a go, type a joke below</h5>", unsafe_allow_html=True)
-joke_input = st.text_area("You can type your joke, I won't bite.", label_visibility='collapsed')
+joke_input = st.text_area()
 
 # Perform analysis when the button is clicked
 
 if st.button('LETS GOOO!') :
-    st.write(joke_input)
     st.session_state.submit = True
 
 if  st.session_state.get("LETS GOOO!", False):
@@ -132,7 +131,7 @@ if  st.session_state.get("LETS GOOO!", False):
             for joke in filtered_jokes:
                 st.write(joke)
     else:
-        st.write("Please enter some text.")
+        st.write("You can type your joke, I won't bite.")
 
 
 
