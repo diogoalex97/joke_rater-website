@@ -77,7 +77,7 @@ with col2:
 with col3:
     st.header(" ")
 
-st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to predict what theme of jokes can you come up with, make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
+st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to predict your joke's theme. Make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
 st.write(text_justify("<h5>I'm a two-week product of three handsome guys. Expect <u>mediocracy</u>, like the jokes I'm assuming you're inputting.</h5>"), unsafe_allow_html=True)
 st.write(text_justify("<h5>Since Chat GPT can't generate more than 25 jokes (or variants), the fact I can classify your jokes means I'm pretty awesome. You know, in a 'what your parents expect of you' kind of way.</h5>"), unsafe_allow_html=True)
 
