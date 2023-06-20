@@ -125,13 +125,13 @@ if  st.session_state.get("submit", False):
             st.pyplot(fig)
 
 
-        if (st.button("Wanna see what I can do? (I'll give you three more jokes of the same theme of yours)")):
+        if (st.button("Wanna see what I can do? I'll give you three more jokes of the same theme:")):
         # more jokes
             filtered_jokes = top3_jokes(jokes_data, "type humor", type_,"topic joke", topic)
             for joke in filtered_jokes:
                 st.write(joke)
     else:
-        st.write("You can type a joke, I won't byte.")
+        st.write("<h6>You can type a joke, I won't byte.<\h6>")
 
 
 
