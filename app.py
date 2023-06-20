@@ -37,7 +37,7 @@ jokes_data = load_jokes_data()
 # # Sidebar
 st.sidebar.write(text_center("<h1>#1242 Data Science Bootcamp Project</h1>"), unsafe_allow_html=True)
 
-st.sidebar.write(text_justify(f"Hey there, from {u_funny} team. The presented product is the final version of our bootcamp's project. We choose to create a dynamic and entertaining <b>joke classifier</b>, where you can input a joke and the model will rate it for its predicted engagement level. I'll give you an idea of what's going on, behind this (<b>beautifully designed</b>) Website:"), unsafe_allow_html=True)
+st.sidebar.write(text_justify(f"Hey there, from {u_funny} team. The presented product is the final version of our bootcamp's project. We choose to create a dynamic and entertaining <b>joke classifier</b>, where you can input a joke and the model will classify its theme, as in the type (knock-knock, dad, dark,...) and topic (politics, animal, technology) of the joke; it will then predicted its engagement level. I'll give you an idea of what's going on, behind this (<b>beautifully designed</b>) Website:"), unsafe_allow_html=True)
 
 
 st.sidebar.markdown(
@@ -46,14 +46,12 @@ st.sidebar.markdown(
         <li>You start by inputting your joke into the pipeline</li>
         <li>Inside, we have two models working:</li>
         <ul style="list-style-type: none; padding-left: 0;">
-            <li style="list-style-type: none; margin-left: 0;">‣ Model 1) Your joke will be rated into a score of engagement</li>
-            <li style="list-style-type: none; margin-left: 0;">‣ Model 2) Your joke will be classified into a type and topic of humor</li>
+            <li style="list-style-type: none; margin-left: 0;">‣ Model 1) Will predict your joke's engagement level</li>
+            <li style="list-style-type: none; margin-left: 0;">‣ Model 2) Will predict your joke's class (type and topic of humor)</li>
         </ul>
-        <li>Now that we have your joke's type and topic of humor rated, we will compare them with the average of our database</li>
-        <ul style="list-style-type: none; padding-left: 0;">
-            <li style="list-style-type: none; margin-left: 0;">‣ Depending if it's higher, around the same value, or worst, we will give you, as an output, that information (we might do it in our special way, since, you know, humor!)</li>
+        <li>The output will be the classification and the engagement score. It will also allow you to see, related to your joke class, some statistics and three more jokes of the same theme of humor</li>
         </ul>
-        <li>Finally, we want to point out that our base data was obtained from (sub)Reddit, meaning it's the backbone of all our predictions</li>
+        <li>Finally, we want to point out that our base data was obtained from (sub)Reddit, meaning it's the backbone of all our predictions.</li>
     </ul>
     """,
     unsafe_allow_html=True
