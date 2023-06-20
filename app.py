@@ -37,7 +37,7 @@ jokes_data = load_jokes_data()
 # # Sidebar
 st.sidebar.write(text_center("<h1>#1242 Data Science Bootcamp Project</h1>"), unsafe_allow_html=True)
 
-st.sidebar.write(text_justify(f"Hey there, from {u_funny} team. The presented product is the final version of our bootcamp's project. We choose to create a dynamic and entertaining <b>joke classifier</b>, where you can input a joke and the model will classify its theme, as in the type (knock-knock, dad, dark,...) and topic (politics, animal, technology) of the joke; it will then predicted its engagement level. I'll give you an idea of what's going on, behind this (<b>beautifully designed</b>) Website:"), unsafe_allow_html=True)
+st.sidebar.write(text_justify(f"   Hey there, from {u_funny} team. The presented product is the final version of our bootcamp's project. We choose to create a dynamic and entertaining <b>joke classifier</b>, where you can input a joke and the model will classify its theme, as in the type (knock-knock, dad, dark,...) and topic (politics, animal, technology) of the joke; it will then predicted its engagement level. I'll give you an idea of what's going on, behind this (<b>beautifully designed</b>) Website:"), unsafe_allow_html=True)
 
 
 st.sidebar.markdown(
@@ -55,7 +55,7 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
-st.sidebar.write(text_justify("We hope you can enjoy and have fun with the interactions."), unsafe_allow_html=True)
+st.sidebar.write(text_justify("   We hope you can enjoy and have fun with the interactions."), unsafe_allow_html=True)
 st.sidebar.write("")
 st.sidebar.write(f"<div>{the_team}</div>", unsafe_allow_html=True)
 st.sidebar.write("<div style='padding: 0'>Diogo Oliveira</div>", unsafe_allow_html=True)
@@ -67,7 +67,7 @@ st.sidebar.write("<div style='padding: 0'>Liam McHugh</div>", unsafe_allow_html=
 
 
 # # Main Page
-st.write(text_center("<h1>U Funny's</h1>"), unsafe_allow_html=True)
+st.write(text_center("<h1>U Funny</h1>"), unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -77,12 +77,13 @@ with col2:
 with col3:
     st.header(" ")
 
-st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to see what theme of jokes can you come up with, make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
-st.write(text_justify("<h5>I'm a two-week product of these handsome guys. Expect <u>mediocraty</u>, like the jokes I'm assuming you're inputting. Think that not even Chat GPT can generate more than 25 jokes (or variants), so I'm saying I'm awesome, in a 'what your parents expect of you' way.</h5>"), unsafe_allow_html=True)
+st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to predict what theme of jokes can you come up with, make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
+st.write(text_justify("<h5>I'm a two-week product of three handsome guys. Expect <u>mediocracy</u>, like the jokes I'm assuming you're inputting.</h5>"), unsafe_allow_html=True)
+st.write(text_justify("Since Chat GPT can't generate more than 25 jokes (or variants), the fact I can classify your jokes means I'm pretty awesome. You know, in a 'what your parents expect of you' kind of way.</h5>"), unsafe_allow_html=True)
 
 
 # Text Input Box
-st.write("<h5>In case you want to give it a go type a joke below</h5>", unsafe_allow_html=True)
+st.write("<h5>In case you want to give it a go, type a joke below</h5>", unsafe_allow_html=True)
 joke_input = st.text_area("who would have guessed that's what the bar was for... shocking, I know", label_visibility='collapsed')
 
 # Perform analysis when the button is clicked
@@ -93,7 +94,7 @@ if st.button('Submit') :
 if  st.session_state.get("submit", False):
     if joke_input:
         # reaction to joke
-        st.success(f"Processing your joke, good luck")
+        st.success(f"Processing your joke, give me a sec...")
 
         # print type and topic
         type_, topic = analyze_text(joke_input)
@@ -107,7 +108,7 @@ if  st.session_state.get("submit", False):
         # st.write("<b> Average number of interaction with these types:</b>",str(round(calculate_average(jokes_data,"score_raw","type humor",type_,"topic joke",topic),2)),unsafe_allow_html=True)
         # st.write("<b> Average of upvote ratio for these types:</b>",str(round(calculate_average(jokes_data, "ratio_0_to_10", "type humor", type_, "topic joke", topic),2) * 100) + "%",unsafe_allow_html=True)
         st.write("<b> Engagement percentage:</b>",str(round(classify_text(joke_input),2)),unsafe_allow_html=True)
-        st.write("(Please be carefull, this rate is definitely not reliable!!)",unsafe_allow_html=True)
+        st.write("(Note that this rate is definitely not reliable!! I'll fixe it one day)",unsafe_allow_html=True)
         filtered_jokes = filter_jokes(jokes_data, "type humor",type_,"topic joke",topic)
         fig, axes = plt.subplots(1, 3, figsize=(10, 3))
 
@@ -124,7 +125,7 @@ if  st.session_state.get("submit", False):
             st.pyplot(fig)
 
 
-        if (st.button('Do you want more jokes of this type?')):
+        if (st.button('Wanna see what I can do? Ask for more jokes of the same theme of yours.')):
         # more jokes
             filtered_jokes = top3_jokes(jokes_data, "type humor", type_,"topic joke", topic)
             for joke in filtered_jokes:
