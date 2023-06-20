@@ -88,7 +88,7 @@ joke_input = st.text_area("who would have guessed that's what the bar was for...
 
 # Perform analysis when the button is clicked
 
-if st.button('LETS GOOO') :
+if st.button('Submit') :
     st.session_state.submit = True
 
 if  st.session_state.get("submit", False):
