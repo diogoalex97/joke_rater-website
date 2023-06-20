@@ -131,7 +131,7 @@ if  st.session_state.get("submit", False):
             for joke in filtered_jokes:
                 st.write(joke)
     else:
-        st.write("<h5>You can type a joke, I won't byte.</h5>",unsafe_allow_html=True)
+        st.write("<h6>You can type a joke, I won't byte. Get it? Byte?</h6>",unsafe_allow_html=True)
 
 
 
