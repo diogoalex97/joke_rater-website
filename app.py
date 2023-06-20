@@ -55,7 +55,7 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
-st.sidebar.write(text_justify("   We hope you can enjoy and have fun with the interactions."), unsafe_allow_html=True)
+st.sidebar.write(text_justify("We hope you can enjoy and have fun with the interactions."), unsafe_allow_html=True)
 st.sidebar.write("")
 st.sidebar.write(f"<div>{the_team}</div>", unsafe_allow_html=True)
 st.sidebar.write("<div style='padding: 0'>Diogo Oliveira</div>", unsafe_allow_html=True)
