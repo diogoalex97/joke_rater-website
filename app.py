@@ -88,10 +88,10 @@ joke_input = st.text_area("who would have guessed that's what the bar was for...
 
 # Perform analysis when the button is clicked
 
-if st.button('LETS GOOO!') :
+if st.button('LETS GOOO') :
     st.session_state.submit = True
 
-if  st.session_state.get("LETS GOOO!", False):
+if  st.session_state.get("submit", False):
     if joke_input:
         # reaction to joke
         st.success(f"Processing your joke, give me a sec...")
@@ -125,13 +125,13 @@ if  st.session_state.get("LETS GOOO!", False):
             st.pyplot(fig)
 
 
-        if (st.button('Wanna see what I can do? Ask for more jokes of the same theme of yours.')):
+        if (st.button("Wanna see what I can do? (I'll give you three more jokes of the same theme of yours)")):
         # more jokes
             filtered_jokes = top3_jokes(jokes_data, "type humor", type_,"topic joke", topic)
             for joke in filtered_jokes:
                 st.write(joke)
     else:
-        st.write("Please enter some text.")
+        st.write("You can type a joke, I won't byte.")
 
 
 
