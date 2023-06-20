@@ -132,9 +132,9 @@ if  st.session_state.get("submit", False):
                 st.write(joke)
     else:
         st.write("<h6>You can type a joke, I won't byte.</h6>",unsafe_allow_html=True)
-        st.sidebar.write("")
-        st.sidebar.write("")
-        st.sidebar.write("<h7>Get it? Byte?</h7>",unsafe_allow_html=True)
+        st.write("")
+        st.write("")
+        st.write("<h7>Get it? Byte?</h7>",unsafe_allow_html=True)
 
 
 
