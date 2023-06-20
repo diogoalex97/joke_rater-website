@@ -50,7 +50,6 @@ st.sidebar.markdown(
             <li style="list-style-type: none; margin-left: 0;">‣ Model 2) Will predict your joke's class (type and topic of humor)</li>
         </ul>
         <li>The output will be the classification and the engagement score. It will also allow you to see, related to your joke class, some statistics and three more jokes of the same theme of humor</li>
-        </ul>
         <li>Finally, we want to point out that our base data was obtained from (sub)Reddit, meaning it's the backbone of all our predictions.</li>
     </ul>
     """,
