@@ -79,11 +79,11 @@ with col3:
 
 st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to predict your joke's theme. Make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
 st.write(text_justify("<h5>I'm a two-week product of three handsome guys. Expect <u>mediocracy</u>, like the jokes I'm assuming you're inputting.</h5>"), unsafe_allow_html=True)
-st.write(text_justify("<h5>Since Chat GPT can't generate more than 25 jokes (or variants), the fact I can classify your jokes means I'm pretty awesome. You know, in a 'what your parents expect of you' kind of way.</h5>"), unsafe_allow_html=True)
+st.write(text_justify("<h5>Since Chat GPT can't generate more than 25 jokes (or variants), the fact I can classify your jokes means I'm pretty awesome, you know, in a 'my mom says I'm special' kind of way.</h5>"), unsafe_allow_html=True)
 
 
 # Text Input Box
-st.write("<h5>In case you want to give it a go, type a joke below</h5>", unsafe_allow_html=True)
+st.write("<h5>In case you want to give it a go, type a joke below:</h5>", unsafe_allow_html=True)
 joke_input = st.text_area("who would have guessed that's what the bar was for... shocking, I know", label_visibility='collapsed')
 
 # Perform analysis when the button is clicked
