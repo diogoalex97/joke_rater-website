@@ -79,7 +79,7 @@ with col3:
 
 st.write(text_justify(f"<h5>Hey, I'm {hijinks}, the brilliant product that is going to predict what theme of jokes can you come up with, make me proud! (acknowledge my 'stache, it's glorious).</h5>"), unsafe_allow_html=True)
 st.write(text_justify("<h5>I'm a two-week product of three handsome guys. Expect <u>mediocracy</u>, like the jokes I'm assuming you're inputting.</h5>"), unsafe_allow_html=True)
-st.write(text_justify("<h5>Since Chat GPT can't generate more than 25 jokes (or variants), the fact I can classify your jokes means I'm pretty awesome. You know, in a 'what your parents expect of you' kind of way.</h5>"), unsafe_allow_html=True)
+st.write(text_justify("Since Chat GPT can't generate more than 25 jokes (or variants), the fact I can classify your jokes means I'm pretty awesome. You know, in a 'what your parents expect of you' kind of way.</h5>"), unsafe_allow_html=True)
 
 
 # Text Input Box
@@ -125,7 +125,7 @@ if  st.session_state.get("submit", False):
             st.pyplot(fig)
 
 
-        if (st.button('Wanna see what I can do? Ask for more jokes of the same theme of yours.')):
+        if (st.button('Do you want more jokes of this type?')):
         # more jokes
             filtered_jokes = top3_jokes(jokes_data, "type humor", type_,"topic joke", topic)
             for joke in filtered_jokes:
